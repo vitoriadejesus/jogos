@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galeria - Jogos Escolares 2025</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f8fb;
+      color: #333;
+    }
+
+    header {
+      background-color: #8fd2ff;
+      color: #0055a5;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header img {
+      margin-top: 10px;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      background-color: #45a8e0;
+      padding: 10px;
+      border-radius: 8px;
+      margin: 15px auto;
+      max-width: 900px;
+      flex-wrap: wrap;
+    }
+
+    .menu li {
+      margin: 8px 15px;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 4px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .menu a:hover {
+      background-color: #2c8ec6;
+      transform: scale(1.05);
+    }
+
+    main {
+      padding: 30px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      background-color: #ffffff;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      color: #007acc;
+      font-size: 1.8em;
+      border-bottom: 2px solid #d6ecf8;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .tab-button {
+      background-color: #d9efff;
+      color: #007acc;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .tab-button:hover,
+    .tab-button.active {
+      background-color: #45a8e0;
+      color: white;
+    }
+
+    .gallery {
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery.active {
+      display: grid;
+    }
+
+    .gallery img,
+    .gallery video {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover,
+    .gallery video:hover {
+      transform: scale(1.03);
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 340px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    form button {
+      margin-top: 20px;
+      background-color: #45a8e0;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    form button:hover {
+      background-color: #2c8ec6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 15px;
+      background-color: #8fd2ff;
+      color: #0055a5;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Logo do Evento" width="400"/>
+    <nav>
+      <ul class="menu">
+         <li><a href="index.html">Página inicial</a></li>
+        <li><a href="cronograma.html">Cronograma</a></li>
+        <li><a href="placar.html">Placar</a></li>
+        <li><a href="turmas.html">Turmas</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Álbuns por Categoria -->
+    <section>
+      <h2>Álbuns por Categoria</h2>
+      <div class="tabs">
+        <button class="tab-button active" onclick="showGallery('dia', this)">Por Dia</button>
+        <button class="tab-button" onclick="showGallery('modalidade', this)">Modalidade Esportiva</button>
+        <button class="tab-button" onclick="showGallery('conhecimento', this)">Competição de Conhecimento</button>
+      </div>
+
+      <div id="dia" class="gallery active">
+        <img src="img01.avif" alt="Dia 1">
+        <img src="img02.webp" alt="Dia 2">
+      </div>
+      <div id="modalidade" class="gallery">
+        <img src="img03.jpg" alt="Futebol">
+        <img src="img04.jpg" alt="volei">
+      </div>
+      <div id="conhecimento" class="gallery">
+        <img src="img05.jpg" alt="Quiz">
+        <img src="img06.jpeg" alt="Xadrez">
+      </div>
+    </section>
+
+    <!-- Vídeos dos Melhores Momentos -->
+    <section>
+      <h2>Vídeos dos Melhores Momentos</h2>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
+    </section>
+
+    <!-- Envio de Material -->
+    <section>
+      <h2>Envio de Material (Opcional)</h2>
+      <form>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="arquivo">Foto ou Vídeo:</label>
+        <input type="file" id="arquivo" name="arquivo" accept="image/*,video/*" required>
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" rows="3"></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy;2025 Jogos Escolares - Desenvolvido por [Seu Nome]</p>
+  </footer>
+
+  <script>
+    function showGallery(id, button) {
+      const galleries = document.querySelectorAll('.gallery');
+      const buttons = document.querySelectorAll('.tab-button');
+
+      galleries.forEach(g => g.classList.remove('active'));
+      buttons.forEach(b => b.classList.remove('active'));
+
+      document.getElementById(id).classList.add('active');
+      button.classList.add('active');
+    }
+  </script>
+</body>
+</html>
+
